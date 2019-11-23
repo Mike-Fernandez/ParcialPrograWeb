@@ -5,6 +5,6 @@ var becaController = require('../controllers/becaController');
 /* GET home page. */
 router.get('/:nombre', becaController.getForUpdate);
 
-router.post('/', becaController.updateBeca);
+router.post('/:nombre', becaController.updateBeca);
 
 module.exports = router;
