@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    div(class="jumbotron")
+        h1= beca.nombre
+        h3= `Organizacion responsable: ${beca.fundacion}`
+        h4= `Tipo de beca: ${beca.tipo}`
+        h5= beca.descripcion

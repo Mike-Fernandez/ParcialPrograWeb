@@ -11,7 +11,7 @@ input[type="text"]{
 	line-height: 1.75;
 }
 
-.makeBeca > input[type="text"]{
+.makeBeca > input[type="text"], .searchbar{
     -moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -76,4 +76,16 @@ h1{
 
 h3{
     color: #a12b2b;
+}
+
+h4{
+    color: #2444ad;
+}
+
+.container{
+    background-color: #81b1ce;
+}
+
+.content{
+    background-color: #f8e1a1;
 }

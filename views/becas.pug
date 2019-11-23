@@ -3,6 +3,16 @@ extends layout
 block content
     header
         h1= title
+    form(action="", method="post")
+        label(for="nombre", class="label")
+        br
+        input(type="text", name="nombre",class="searchbar")
+        br
+        input(type="submit", value="Search", formaction="/search")
+        br
+        br
+        br
+        br
     h3 Programas de becas disponibles
     div(class="bodyTable")
         table(class="table table-hover")

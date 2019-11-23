@@ -6,7 +6,8 @@ module.exports.getBeca = (req,res,next) => {
     })
     .then((found) => {
         if(found)
-            return res.status(200).json(found);
+            return res.render('search',{title: 'BecaViewer', beca: found});
+//            return res.status(200).json(found);
         else
             return res.status(400).json(null);
     })
