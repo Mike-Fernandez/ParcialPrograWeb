@@ -1,22 +1,50 @@
 extends layout
 
 block content
-  h1= title
-  h2 Programas de becas disponibles
-  div(class="bodyTable")
-    table(class="becas")
-        tr
-            th Nombre
-            th Organización
-            th Tipo
-            th Descripción
-        each beca in becas
+    header
+        h1= title
+    h2 Programas de becas disponibles
+    div(class="bodyTable")
+        table(class="becas")
             tr
-                th
-                    p= beca.nombre
-                th
-                    p= beca.fundacion
-                th
-                    p(class="grammar")= beca.tipo
-                th
-                    p= beca.descripcion
+                th Nombre
+                th Organización
+                th Tipo
+                th Descripción
+                th Update
+                th Delete
+            each beca in becas
+                tr
+                    th
+                        p= beca.nombre
+                    th
+                        p= beca.fundacion
+                    th
+                        p(class="grammar")= beca.tipo
+                    th
+                        p= beca.descripcion
+                    th
+                        form(action="", method="post")
+                            input(type="submit", value="Update", class="bUpdate", formaction="/put")
+                    th
+                        form(action="", method="post")
+                            input(type="submit", value="Delete", class="bDelete")
+    h2 Agregar un programa de becas
+    form(action="", method="post")
+        label(for="Nombre") Nombre
+        br
+        input(type="text", name="nombre")
+        br
+        label(for="Fundacion") Organizacion
+        br
+        input(type="text", name="fundacion")
+        br
+        label(for="tipo") Tipo
+        br
+        input(type="text", name="tipo")
+        br
+        label(for="descripcion") Descripcion
+        br
+        input(type="text", name="descripcion")
+        br
+        input(type="submit", value="Agregar")

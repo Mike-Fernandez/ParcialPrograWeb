@@ -39,12 +39,16 @@ module.exports.createBeca = (req,res,next) => {
             return newBeca.save();
         }
     })
-    .then(beca => {
-        return res.header('Location', '/becas/' + beca._id)
+    .then(returned => {
+/*        return res.header('Location', '/becas/' + beca._id)
                 .status(201)
                 .json({
                     nombre: beca.nombre
-                });
+                });*/
+        Beca.find({})
+        .then((beca)=> {
+            return res.render('becas', {title: 'BecaViewer', becas: beca});
+        });
     }).catch(err => {
         next(err);
     })
