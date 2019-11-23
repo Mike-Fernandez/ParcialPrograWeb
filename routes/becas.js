@@ -18,6 +18,8 @@ router.post('/put', function(req,res,next) {
     res.redirect(`/put/${urlstring}`);
 });
 
+router.post('/reload', becaController.getAllBecas);
+
 router.post('/delete', becaController.deleteBeca);
 
 router.put('/:nombre', becaController.updateBeca);

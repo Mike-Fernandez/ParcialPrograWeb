@@ -9,7 +9,7 @@ module.exports.getBeca = (req,res,next) => {
             return res.render('search',{title: 'BecaViewer', beca: found});
 //            return res.status(200).json(found);
         else
-            return res.status(400).json(null);
+            return res.status(400).json("Programa de becas no existe");
     })
 }
 
@@ -66,6 +66,7 @@ module.exports.createBeca = (req,res,next) => {
         Beca.find({})
         .then((beca)=> {
             return res.render('becas', {title: 'BecaViewer', becas: beca});
+//            return res.status(201).json(beca.nombre)
         });
     }).catch(err => {
         next(err);
@@ -85,7 +86,8 @@ module.exports.updateBeca = (req,res,next) => {
     })
     .then((updated) => {
         if(updated){
-            res.redirect('/');
+            return res.redirect('/');
+//            return res.json(updated);
         }
         else
             return res.status(400).json(null);
@@ -102,9 +104,9 @@ module.exports.deleteBeca = (req,res,next) => {
     .then((doc) => {
         if(doc)
         return res.redirect('/');
-//            return res.status(200).json(doc);
+//            return res.status(200).json(null);
         else
-            return res.status(400).json(null);
+            return res.status(404).json(null);
     })
     .catch(err => {
         next(err);

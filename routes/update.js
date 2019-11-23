@@ -7,4 +7,8 @@ router.get('/:nombre', becaController.getForUpdate);
 
 router.post('/:nombre', becaController.updateBeca);
 
+router.post('/cancel', function(req,res,next){
+    return res.redirect('becas');
+})
+
 module.exports = router;

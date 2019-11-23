@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= `Update ${beca.nombre}`
-    form(action="", method="post", class="form-group")
+    form(action="", method="post", class="form-group updateBeca")
         label(for="Nombre") Nombre
         br
         input(type="text", name="nombre", value=beca.nombre)
@@ -24,4 +24,5 @@ block content
         br
         input(type="text", name="descripcion", value= beca.descripcion)
         br
-        input(type="submit", value="Modificar")
+        input(type="submit", value="Modificar", class="btn btn-danger")
+        input(type="submit", value="Cancelar", class="btn btn-danger", formaction="/cancel")

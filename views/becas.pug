@@ -47,15 +47,17 @@ block content
                             input(type="text", name="tipo", value=beca.tipo, class="hide")
                             input(type="text", name="descripcion", value=beca.descripcion, class="hide")
                             input(type="submit", value="Delete", class="btn btn-danger bDelete", formaction="/delete")
+    form(action="", method="post")
+        input(type="submit", value="Recargar", class="btn btn-danger", formaction="/reload")
     h3 Agregar un programa de becas
     form(action="", method="post", class="form-group makeBeca")
         label(for="Nombre", class="label") Nombre
         br
-        input(type="text", name="nombre")
+        input(type="text", name="nombre", placeholder="Nombre del programa de becas")
         br
         label(for="Fundacion", class="label") Organizacion
         br
-        input(type="text", name="fundacion")
+        input(type="text", name="fundacion", placeholder="Institucion dueña del programa")
         br
         label(for="tipo", class="label") Tipo
         br
@@ -68,6 +70,7 @@ block content
         br
         label(for="descripcion", class="label") Descripcion
         br
-        input(type="text", name="descripcion")
+        input(type="text", name="descripcion", placeholder="Descripcion del programa")
         br
         input(type="submit", value="Agregar", class="btn btn-danger")
+        input(type="submit", value="Cancelar", class="btn btn-danger", formaction="/cancel")
