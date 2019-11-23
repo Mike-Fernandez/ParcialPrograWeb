@@ -25,7 +25,17 @@ module.exports.getForUpdate = (req,res,next) => {
 }
 
 module.exports.getAllBecas = (req,res,next) => {
+    var perPage = Number(req.query.size) || 10,
+        page = req.query.page > 0 ? req.query.page : 0;
+
+    var sortProperty = req.query.sortby || "createdAt",
+        sort = req.query.sort || "desc";
+
+    
     Beca.find({})
+    .limit(perPage)
+    .skip(perPage * page)
+    .sort({ [sortProperty]: sort})
     .then((beca) => {
         return res.render('becas',{title: 'BecaViewer',becas: beca});
 //        return res.status(200).json(beca);
@@ -84,12 +94,14 @@ module.exports.updateBeca = (req,res,next) => {
 }
 
 module.exports.deleteBeca = (req,res,next) => {
+    console.log("Deleting, sent from controller " + req.body.nombre);
     Beca.findOneAndDelete({
-        nombre: req.params.nombre
+        nombre: req.body.nombre
     })
     .then((doc) => {
         if(doc)
-            return res.status(200).json(doc);
+        return res.redirect('/');
+//            return res.status(200).json(doc);
         else
             return res.status(400).json(null);
     })

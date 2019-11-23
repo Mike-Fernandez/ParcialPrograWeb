@@ -3,16 +3,16 @@ extends layout
 block content
     header
         h1= title
-    h2 Programas de becas disponibles
+    h3 Programas de becas disponibles
     div(class="bodyTable")
-        table(class="becas")
-            tr
-                th Nombre
-                th Organización
-                th Tipo
-                th Descripción
-                th Update
-                th Delete
+        table(class="table table-hover")
+            tr(class="table-dark")
+                th(scope="col") Nombre
+                th(scope="col") Organización
+                th(scope="col") Tipo
+                th(scope="col") Descripción
+                th(scope="col") Update
+                th(scope="col") Delete
             each beca in becas
                 tr
                     th
@@ -29,30 +29,30 @@ block content
                             input(type="text", name="fundacion", value=beca.fundacion, class="hide")
                             input(type="text", name="tipo", value=beca.tipo, class="hide")
                             input(type="text", name="descripcion", value=beca.descripcion, class="hide")
-                            input(type="submit", value="Update", class="bUpdate", formaction="/put")
+                            input(type="submit", value="Update", class="btn btn-danger bUpdate", formaction="/put")
                     th
                         form(action="", method="post")
                             input(type="text", name="nombre", value=beca.nombre, class="hide")
                             input(type="text", name="fundacion", value=beca.fundacion, class="hide")
                             input(type="text", name="tipo", value=beca.tipo, class="hide")
                             input(type="text", name="descripcion", value=beca.descripcion, class="hide")
-                            input(type="submit", value="Delete", class="bDelete", formaction="/delete")
-    h2 Agregar un programa de becas
-    form(action="", method="post")
-        label(for="Nombre") Nombre
+                            input(type="submit", value="Delete", class="btn btn-danger bDelete", formaction="/delete")
+    h3 Agregar un programa de becas
+    form(action="", method="post", class="form-group makeBeca")
+        label(for="Nombre", class="label") Nombre
         br
         input(type="text", name="nombre")
         br
-        label(for="Fundacion") Organizacion
+        label(for="Fundacion", class="label") Organizacion
         br
         input(type="text", name="fundacion")
         br
-        label(for="tipo") Tipo
+        label(for="tipo", class="label") Tipo
         br
         input(type="text", name="tipo")
         br
-        label(for="descripcion") Descripcion
+        label(for="descripcion", class="label") Descripcion
         br
         input(type="text", name="descripcion")
         br
-        input(type="submit", value="Agregar")
+        input(type="submit", value="Agregar", class="btn btn-danger")
