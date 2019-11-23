@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var mongoose = require('mongoose');
-var debug = require('debug')('blog:database');
+var debug = require('debug')('parcial:database');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
