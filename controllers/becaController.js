@@ -15,7 +15,8 @@ module.exports.getBeca = (req,res,next) => {
 module.exports.getAllBecas = (req,res,next) => {
     Beca.find({})
     .then((beca) => {
-        return res.status(200).json(beca);
+        return res.render('becas',{title: 'BecaViewer',becas: beca});
+//        return res.status(200).json(beca);
     }).catch(err => {
         next(err);
     })

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  h2 Programas de becas disponibles
+  div(class="bodyTable")
+  each beca in becas
+    h1= beca.nombre
