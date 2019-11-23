@@ -4,5 +4,19 @@ block content
   h1= title
   h2 Programas de becas disponibles
   div(class="bodyTable")
-  each beca in becas
-    h1= beca.nombre
+    table(class="becas")
+        tr
+            th Nombre
+            th Organización
+            th Tipo
+            th Descripción
+        each beca in becas
+            tr
+                th
+                    p= beca.nombre
+                th
+                    p= beca.fundacion
+                th
+                    p(class="grammar")= beca.tipo
+                th
+                    p= beca.descripcion
