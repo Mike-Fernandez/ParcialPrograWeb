@@ -10,6 +10,7 @@ var debug = require('debug')('parcial:database');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var becaRouter = require('./routes/becas');
+var updateRouter = require('./routes/update');
 
 mongoose.connect(process.env.MONGO_URI,{
   useCreateIndex: true,
@@ -46,6 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/', becaRouter);
+app.use('/put', updateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= `Update ${beca.nombre}`
+    form(action="", method="post")
+        label(for="Nombre") Nombre
+        br
+        input(type="text", name="nombre", value=beca.nombre)
+        br
+        label(for="Fundacion") Organizacion
+        br
+        input(type="text", name="fundacion", value= beca.fundacion)
+        br
+        label(for="tipo") Tipo
+        br
+        input(type="text", name="tipo", value= beca.tipo)
+        br
+        label(for="descripcion") Descripcion
+        br
+        input(type="text", name="descripcion", value= beca.descripcion)
+        br
+        input(type="submit", value="Modificar")

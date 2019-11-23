@@ -25,6 +25,10 @@ block content
                         p= beca.descripcion
                     th
                         form(action="", method="post")
+                            input(type="text", name="nombre", value=beca.nombre, class="hide")
+                            input(type="text", name="fundacion", value=beca.fundacion, class="hide")
+                            input(type="text", name="tipo", value=beca.tipo, class="hide")
+                            input(type="text", name="descripcion", value=beca.descripcion, class="hide")
                             input(type="submit", value="Update", class="bUpdate", formaction="/put")
                     th
                         form(action="", method="post")

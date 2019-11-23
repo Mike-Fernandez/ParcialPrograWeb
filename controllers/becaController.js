@@ -12,6 +12,18 @@ module.exports.getBeca = (req,res,next) => {
     })
 }
 
+module.exports.getForUpdate = (req,res,next) => {
+    Beca.findOne({
+        nombre: req.params.nombre
+    })
+        .then((beca) => {
+            return res.render('updating', {title: 'BecaViewer', beca: beca});
+        })
+        .catch(err => {
+            next(err);
+        })
+}
+
 module.exports.getAllBecas = (req,res,next) => {
     Beca.find({})
     .then((beca) => {
@@ -40,11 +52,6 @@ module.exports.createBeca = (req,res,next) => {
         }
     })
     .then(returned => {
-/*        return res.header('Location', '/becas/' + beca._id)
-                .status(201)
-                .json({
-                    nombre: beca.nombre
-                });*/
         Beca.find({})
         .then((beca)=> {
             return res.render('becas', {title: 'BecaViewer', becas: beca});
@@ -55,6 +62,7 @@ module.exports.createBeca = (req,res,next) => {
 }
 
 module.exports.updateBeca = (req,res,next) => {
+    console.log("hello " + req.body.nombre);
     var update = {
         ...req.body
     };
