@@ -74,13 +74,7 @@ module.exports.updateBeca = (req,res,next) => {
     })
     .then((updated) => {
         if(updated){
-            Beca.find({})
-            .then((beca)=> {
-                return res.render('becas', {title: 'BecaViewer', becas: beca});
-            })
-            .catch(err => {
-                next(err);
-            });
+            res.redirect('/');
         }
         else
             return res.status(400).json(null);

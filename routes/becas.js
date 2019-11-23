@@ -14,6 +14,12 @@ router.post('/put', function(req,res,next) {
     res.redirect(`/put/${urlstring}`);
 });
 
+router.post('/delete', function(req,res,next){
+    var urlstring = req.body.nombre.toString().split(' ').join('%20');
+    console.log("Deleting");
+//    res.redirect(`/del/${urlstring}`);
+});
+
 router.put('/:nombre', becaController.updateBeca);
 
 router.delete('/:nombre', becaController.deleteBeca);
